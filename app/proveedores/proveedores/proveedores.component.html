@@ -1,0 +1,34 @@
+<!-- <h2>{{ mensaje }}</h2> -->
+<h3>Listado de proveedores</h3>
+<a class="btn btn-primary float-md-right" routerLink="/addprovee" style="margin: 20px;">Añadir nuevo proveedor</a>
+
+<input type="search" placeholder="Teclee un proveedor..."
+    [formControl]="campoBusqueda"
+    class="form-control">
+
+
+<div *ngIf="cargando" class="text-center" style="padding-top: 60px;">
+  <img src="../../../assets/spinner.gif" alt="cargando">
+</div>
+<!-- <div *ngIf="!cargando"> -->
+<div *ngIf="resultados">
+    <table class="table table-bordered table-striped" style="margin-top: 40px;">
+    <thead>
+      <tr class="filters">
+        <th>Nombre</th>
+        <th>Email</th>
+        <th>Teléfono</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let proveedor of proveedores">
+        <td>{{proveedor.nombre}}</td>
+        <td><a href="mailto:{{proveedor.email}}">{{proveedor.email}}</a></td>
+        <td>{{proveedor.telefono}}</td>
+      </tr>
+    </tbody>    
+  </table>
+</div>
+<div *ngIf="noresultados">
+  <p>No existe ninguna coincidencia</p>
+</div>

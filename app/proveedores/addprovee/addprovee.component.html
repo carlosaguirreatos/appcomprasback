@@ -1,0 +1,108 @@
+<div class="row">
+  <div class="col col-md"></div>
+  <div class="col-10 col-md-8">
+    <h2>Añadir nuevo proveedor</h2>
+    <!-- <form (ngSubmit)="onSubmit()" #formpro="ngForm"> -->
+        <form [formGroup]="proveedorForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>Nombre</label>
+        <!-- <input type="text" 
+               class="form-control"
+               id="nombre"
+               name="nombre"
+               ngModel> -->
+       <input type="text" 
+               class="form-control"
+               id="nombre"
+               formControlName="nombre">
+      </div>
+      <div class="form-group">
+        <label>C.I.F.</label>
+        <input type="text" 
+               class="form-control"
+               id="cif"
+               formControlName="cif">
+      </div>
+      <div class="form-group">
+        <label>Dirección</label>
+        <input type="text" 
+               class="form-control"
+               id="direccion"
+               formControlName="direccion">
+      </div>
+      <div class="form-group">
+        <label>Código Postal</label>
+        <input type="text" 
+               class="form-control"
+               id="cp"
+               formControlName="cp">
+      </div>
+      <div class="form-group">
+        <label>Localidad</label>
+        <input type="text" 
+               class="form-control"
+               id="localidad" 
+               formControlName="localidad">
+      </div>
+      <div class="form-group">
+        <label>Provincia</label>
+        <!-- <input type="text" 
+               class="form-control"
+               id="provincia" 
+               name="provincia"
+               ngModel> -->
+        <select class="form-control"
+                id="provincia"
+                formControlName="provincia">
+                <option value="">Seleccione una provincia</option>
+                <option *ngFor="let provincia of provincias" [value]="provincia">
+                  {{ provincia }}
+                </option>
+        </select>
+      </div>        
+      <div class="form-group">
+        <label>Teléfono</label>
+        <input type="number" 
+               class="form-control"
+               id="telefono"
+               formControlName="telefono">
+      </div>
+      <div class="form-group">
+        <label>Correo Electrónico</label>
+        <!-- <i class="fa fa-check-circle check"
+          *ngIf="email.valid"></i>
+        <i class="fa fa-exclamation-circle uncheck"
+          *ngIf="email.invalid && email.touched"></i> -->
+        <input type="email" 
+               class="form-control"
+               id="email"
+               formControlName="email"  >
+        <!-- <p class="alert alert-danger"
+           *ngIf="email.invalid && email.touched">
+           Por favor introduzca una dirección de correo válida</p> -->
+      </div>
+      <div class="form-group">
+        <label>Persona de contacto</label>
+        <input type="text" 
+               class="form-control"
+               id="contacto"
+               formControlName="contacto">
+      </div>
+    <button type="submit" 
+            class="btn btn-success"
+            [disabled]="!proveedorForm.valid">
+                  Añadir Proveedor
+    </button>
+    <p class="alert alert-danger" *ngIf="!proveedorForm.valid">Por favor complete todos los campos obligatorios</p>
+    </form>
+    <hr>
+    <!-- <pre>{{ proveedor | json }}</pre>
+    <hr> -->
+    <!-- <h4>Estado dirty (se empieza a usar el campo): {{ proveedorForm.controls.email.dirty }}</h4>
+    <h4>Estado pristine (campo no tocado en true): {{ proveedorForm.controls.email.pristine }}</h4>
+    <h4>Estado touched (sin foco true): {{ proveedorForm.controls.email.touched }}</h4>
+    <h4>Estado valid (cumple la norma true): {{ proveedorForm.controls.email.valid }}</h4>
+    <h4>Estado invalid: {{ proveedorForm.controls.email.invalid   }}</h4> -->
+  </div>
+  <div class="col col-md"></div>
+</div>

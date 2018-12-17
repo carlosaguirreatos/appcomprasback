@@ -1,0 +1,9 @@
+<div class="card" style="width: 20rem; margin-top: 5px; margin-bottom: 5px;">
+  <div class="card-block" style="margin: 5px;">
+    <h4 class="card-title">Contrato</h4>
+      <p class="card-text">{{ upload.name }}</p>
+        <a  href="{{upload.url}}" class="btn btn-primary float-md-left">Visualizar</a>
+        <button  class="btn btn-danger float-md-right"
+                (click)="deleteUpload(upload)">Eliminar</button>
+  </div>
+</div>
